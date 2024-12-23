@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <header>
+            <img src="assets/hearts.png" alt="corações" />
+            <div class="title">AluraGeek</div>
+        </header>
+
+        <main>
+            <div id="produtos">
+                <h2>Meus Produtos:</h2>
+                <div class="card">
+                    <img
+                        src="assets/poke_booster.jpg"
+                        alt="Imagem do Produto"
+                    />
+                    <div class="card-container--info">
+                        <p>Booster Pack Pokemon</p>
+                        <div class="card-container--value">
+                            <p>Preço: $20.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/mtg_booster.jpg" alt="Imagem do Produto" />
+                    <div class="card-container--info">
+                        <p>Booster Pack MTG</p>
+                        <div class="card-container--value">
+                            <p>Preço: $20.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img
+                        src="assets/poke_booster.jpg"
+                        alt="Imagem do Produto"
+                    />
+                    <div class="card-container--info">
+                        <p>Booster Pack Pokemon</p>
+                        <div class="card-container--value">
+                            <p>Preço: $20.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/mtg_booster.jpg" alt="Imagem do Produto" />
+                    <div class="card-container--info">
+                        <p>Booster Pack MTG</p>
+                        <div class="card-container--value">
+                            <p>Preço: $20.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img
+                        src="assets/poke_booster.jpg"
+                        alt="Imagem do Produto"
+                    />
+                    <div class="card-container--info">
+                        <p>Booster Pack Pokemon</p>
+                        <div class="card-container--value">
+                            <p>Preço: $20.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/mtg_booster.jpg" alt="Imagem do Produto" />
+                    <div class="card-container--info">
+                        <p>Booster Pack MTG</p>
+                        <div class="card-container--value">
+                            <p>Preço: $20.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img
+                        src="assets/poke_booster.jpg"
+                        alt="Imagem do Produto"
+                    />
+                    <div class="card-container--info">
+                        <p>Booster Pack Pokemon</p>
+                        <div class="card-container--value">
+                            <p>Preço: $20.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="assets/mtg_booster.jpg" alt="Imagem do Produto" />
+                    <div class="card-container--info">
+                        <p>Booster Pack MTG</p>
+                        <div class="card-container--value">
+                            <p>Preço: $20.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img
+                        src="assets/poke_booster.jpg"
+                        alt="Imagem do Produto"
+                    />
+                    <div class="card-container--info">
+                        <p>Booster Pack Pokemon</p>
+                        <div class="card-container--value">
+                            <p>Preço: $20.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="form">
+                <h2>ADICIONAR PRODUTO:</h2>
+
+                <div id="butoes"></div>
+                <button id="guardar">Guardar</button>
+                <button id="limpar">Limpar</button>
+            </div>
+        </main>
+
+        <footer>
+            <img src="assets/hearts.png" alt="corações" />
+            <div class="title">AluraGeek</div>
+            <p>desenvolvido por Gabriel Augusto Alcântara Bezerra</p>
+            <p>Alura Latam- 2024</p>
+        </footer>
+    </body>
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector("#form");
+        const inputName = document.createElement("input");
+        const inputValue = document.createElement("input");
+        const inputImage = document.createElement("input");
+        const guardarButton = document.querySelector("#guardar");
+        const limparButton = document.querySelector("#limpar");
+        const produtosContainer = document.querySelector("#produtos");
+
+        // Setting up attributes for inputs
+        inputName.type = "text";
+        inputName.placeholder = "Nome do Produto...";
+        inputName.id = "input-name";
+
+        inputValue.type = "text";
+        inputValue.placeholder = "Valor do Produto...";
+        inputValue.id = "input-value";
+
+        inputImage.type = "text";
+        inputImage.placeholder = "URL da Imagem...";
+        inputImage.id = "input-image";
+
+        // Adding inputs to the form
+        form.insertBefore(inputName, guardarButton);
+        form.insertBefore(inputValue, guardarButton);
+        form.insertBefore(inputImage, guardarButton);
+
+        // Event listener for the "Guardar" button
+        guardarButton.addEventListener("click", () => {
+            const name = inputName.value.trim();
+            const value = inputValue.value.trim();
+            const imageUrl = inputImage.value.trim();
+
+            if (name && value && imageUrl) {
+                const card = document.createElement("div");
+                card.classList.add("card");
+
+                const img = document.createElement("img");
+                img.src = imageUrl;
+                img.alt = `Imagem de ${name}`;
+
+                const infoContainer = document.createElement("div");
+                infoContainer.classList.add("card-container--info");
+
+                const productName = document.createElement("p");
+                productName.textContent = name;
+
+                const productValue = document.createElement("div");
+                productValue.classList.add("card-container--value");
+
+                const valueText = document.createElement("p");
+                valueText.textContent = `Preço: ${value}`;
+
+                productValue.appendChild(valueText);
+                infoContainer.appendChild(productName);
+                infoContainer.appendChild(productValue);
+                card.appendChild(img);
+                card.appendChild(infoContainer);
+                produtosContainer.appendChild(card);
+
+                // Clear inputs after adding the product
+                inputName.value = "";
+                inputValue.value = "";
+                inputImage.value = "";
+            } else {
+                alert(
+                    "Por favor, preencha todos os campos para adicionar um produto."
+                );
+            }
+        });
+
+        // Event listener for the "Limpar" button
+        limparButton.addEventListener("click", () => {
+            inputName.value = "";
+            inputValue.value = "";
+            inputImage.value = "";
+        });
+    });
+</script>
